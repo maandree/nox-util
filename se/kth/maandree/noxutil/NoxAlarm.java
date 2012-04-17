@@ -50,7 +50,7 @@ public class NoxAlarm
 	
 	final String[] files;
 	if ((args == null) || (args.length == 0))
-	    files = new String[] { "~/.noxalarm".replace("~", "HOME") };
+	    files = new String[] { "~/.noxalarm".replace("~", getProperty("HOME")) };
 	else
 	    files = args;
 	
@@ -211,6 +211,7 @@ public class NoxAlarm
 		}
 		else
 		    Thread.sleep(20000);
+		i--;
 	    }
 	    catch (final Throwable err)
 	    {
