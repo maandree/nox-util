@@ -1,0 +1,1 @@
+{"name":"nox-util","body":"Utility programs for headless environments\r\n\r\n* Nox-alarm: Alarm clock that execute a program, I, for example, start mplayer.\r\n\r\n* Quack: Starts a search on DuckDuckGo using Lynx.\r\n","tagline":"Utility programs for headless environments","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
