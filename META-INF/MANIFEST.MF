@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Package-Version: 1.0
+Product-Name: nox-util
+Package-Vendor: Mattias Andrée
+Created-By: Mattias Andrée
+Main-Class: se.kth.maandree.noxutil.Program
