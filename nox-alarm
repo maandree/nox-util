@@ -1,1 +1,3 @@
+stty -isig
 java -jar $0.jar nox-alarm $@
+stty isig
