@@ -197,9 +197,9 @@ public class NoxAlarm
 		{
 		    run(command);
 		    System.out.print("\033c");
-		    final String check = "Press Enter to snooze, otherwise type this line itself.";
+		    final String check = "Press Enter to snooze, otherwise type this line itself, in upper case.";
 		    System.out.println(check);
-		    if (sc.nextLine().equals(check) == false)
+		    if (sc.nextLine().equals(check.toUpperCase()) == false)
 			i--;
 		    continue;
 		}
