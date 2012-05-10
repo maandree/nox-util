@@ -200,7 +200,11 @@ public class NoxAlarm
 		    final String check = "Press Enter to snooze, otherwise type this line itself, in upper case.";
 		    System.out.println(check);
 		    if (sc.nextLine().equals(check.toUpperCase()) == false)
+		    {
 			i--;
+			for (int snooze = 0; snooze < 40; snooze++)
+			    Thread.sleep(6000);
+		    }
 		    continue;
 		}
 		
