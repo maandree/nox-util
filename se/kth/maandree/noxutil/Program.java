@@ -51,6 +51,7 @@ public class Program
 	    
 	    if      (prog.equals("noxalarm"))  NoxAlarm.main(progArgs);
 	    else if (prog.equals("quack"))     Quack   .main(progArgs);
+	    else if (prog.equals("winise"))    Winise  .main(progArgs);
 	    else
 		System.err.println("Unknown program: " + prog);
 	}
