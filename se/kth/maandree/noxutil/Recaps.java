@@ -103,41 +103,41 @@ public class Recaps
 	
 	tin.start();
 	
-	//final Object mout = new Object();
-	//final Thread tout = new Thread()
-	//        {
-	//	    /**
-	//	     * {@inheritDoc}
-	//	     */
-	//	    @Override
-	//	    public void run()
-	//	    {
-	//		try
-	//		{
-	//		    final InputStream stream = new FileInputStream(new File(pts));
-	//		    synchronized (mout)
-	//		    {   mout.notify();
-	//		    }
-	//		    for (;;)
-	//		    {
-	//			System.out.write(stream.read());
-	//			System.out.flush();
-	//		    }
-	//		}
-	//		catch (final Throwable err)
-	//		{   // Just quit
-	//		}
-	//	    }
-	//        };
-	//
-	//tout.start();
+	final Object mout = new Object();
+	final Thread tout = new Thread()
+	        {
+		    /**
+		     * {@inheritDoc}
+		     */
+		    @Override
+		    public void run()
+		    {
+			try
+			{
+			    final InputStream stream = new FileInputStream(new File(pts));
+			    synchronized (mout)
+			    {   mout.notify();
+			    }
+			    for (;;)
+			    {
+				System.out.write(stream.read());
+				System.out.flush();
+			    }
+			}
+			catch (final Throwable err)
+			{   // Just quit
+			}
+		    }
+	        };
+	
+	tout.start();
 	
 	synchronized (min)
 	{   min.wait();
 	}
-	//synchronized (mout)
-	//{   mout.wait();
-	//}
+	synchronized (mout)
+	{   mout.wait();
+	}
 	
 	String stty = execSystemProperty("/dev/stdin", "stty", "-F", (new File("/dev/stdin")).getCanonicalPath(), "-a");
 	stty = stty.substring(stty.indexOf(';') + 2);
@@ -216,11 +216,11 @@ public class Recaps
 	{
 	    final ProcessBuilder procBuilder = new ProcessBuilder(cmds);
 	    
-	    procBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
-	    //procBuilder.redirectError(new File(pts));
+	    //procBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
+	    procBuilder.redirectError(new File(pts));
 	    procBuilder.redirectInput(new File(pts));
-	    //procBuilder.redirectOutput(new File(pts));
-	    procBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+	    procBuilder.redirectOutput(new File(pts));
+	    //procBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 	    
 	    return procBuilder;
 	}

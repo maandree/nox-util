@@ -43,7 +43,7 @@ public class Program
      */
     public static void main(final String... args) throws Exception
     {
-	if (args.length == 0)
+	if (args.length != 0)
         {
 	    final String prog = args[0].toLowerCase().replace("-", "");
 	    final String[] progArgs = new String[args.length - 1];
