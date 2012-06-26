@@ -44,7 +44,7 @@ public class Bibinilnilium
      * 
      * @param  args  Startup arguments
      */
-    public static void main(final String... args) throws Throwable
+    public static void main(final String... args) throws Exception
     {
 	final ProcessBuilder procBuilder = new ProcessBuilder(args);
 	procBuilder.inheritIO();
