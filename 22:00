@@ -1,3 +1,1 @@
-stty -isig
 /opt/java7/bin/java -jar "$0".jar 22\:00 "$@"
-stty isig
