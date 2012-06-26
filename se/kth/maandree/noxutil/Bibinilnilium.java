@@ -23,8 +23,8 @@ import java.io.*;
 
 
 /**
- * The main class of the alarm program
- *
+ * This program executes another program and halts it at 22:00
+ * 
  * @author  Mattias Andrée, <a href="mailto:maandree@kth.se">maandree@kth.se</a>
  */
 public class Bibinilnilium
