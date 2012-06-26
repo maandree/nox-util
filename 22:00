@@ -1,1 +1,1 @@
-/opt/java7/bin/java -jar "$0".jar 22\:00 "$@"
+/opt/java7/bin/java -jar "${0/:/;}".jar 22\:00 "$@"
