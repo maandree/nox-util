@@ -47,7 +47,7 @@ import java.util.*;
  *
  *   SYNOPSIS:
  *
- *       --                   Avoids parsing all following arguments as options.   ****pending****
+ *       --                   Avoids parsing all following arguments as options.
  *
  *       @FILE                Include the options stored in a file.
  *                            FILE = the file with the options.
@@ -101,7 +101,7 @@ import java.util.*;
  *       --hardno             Do no removals at all.
  *
  *       -p
- *       --pdf                Open .pdf.gz memoranda using evince.
+ *       --pdf                Open .pdf.xz memoranda using evince.
  *                            Recommended for graphical environments.
  *
  *       -o FROM:TO
@@ -335,7 +335,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 		"    --hardno            \033[0m Do no removals at all."                                               +"\n"+
 		"\033[36;1m"                                                                                           +"\n"+
 		"    -p"                                                                                               +"\n"+
-		"    --pdf               \033[0m Open .pdf.gz memoranda using evince."                                 +"\n"+
+		"    --pdf               \033[0m Open .pdf.xz memoranda using evince."                                 +"\n"+
 		"                         Recommended for graphical environments."                                     +"\n"+
 		"\033[36;1m"                                                                                           +"\n"+
 		"    -o \033[0;36mFROM\033[1m:\033[0;36mTO\033[1m"                                                     +"\n"+
@@ -737,7 +737,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 		    final int index = Integer.parseInt(file);
 		    final int groupi = index / 50 * 50;
 		    
-		    all.append(" " + groupi + "/rfc" + index + ".pdf.gz");
+		    all.append(" " + groupi + "/rfc" + index + ".pdf.xz");
 		}
 		all.append(" &");
 		exec(all.toString());
@@ -748,7 +748,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 		    final int index = Integer.parseInt(file);
 		    final int groupi = index / 50 * 50;
 		    
-		    exec("gzip -dc " + groupi + "/rfc" + index + ".gz", "less -r");
+		    exec("xz -dc " + groupi + "/rfc" + index + ".xz", "less -r");
 		}
 
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -779,9 +779,9 @@ public class RFCViewer //FIXME  handle invalid arguments
 		for (int i = 0; i <= max; i += 50)
 		    if ((new File("./" + i)).exists())
 			for (final String path : (new File("./" + i)).list())
-			    if (path.startsWith("rfc") && path.endsWith(".pdf.gz"))
+			    if (path.startsWith("rfc") && path.endsWith(".pdf.xz"))
 				pdf[pdfptr++] = Integer.parseInt(path.substring(3, path.length() - 7));
-			    else if (path.startsWith("rfc") && path.endsWith(".gz"))
+			    else if (path.startsWith("rfc") && path.endsWith(".xz"))
 				plain[plainptr++] = Integer.parseInt(path.substring(3, path.length() - 3));
 		
 		int last = 0;

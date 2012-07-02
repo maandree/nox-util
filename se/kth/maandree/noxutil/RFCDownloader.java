@@ -65,18 +65,18 @@ public class RFCDownloader
 		    exec("mv rfc" + i + " rfc" + i + ".pdf");
 		    exec("mv rfc" + i + ".txt rfc" + i);
 		    
-		    exec("gzip -9 rfc" + i + ".pdf");
-		    exec("gzip -9 rfc" + i);
+		    exec("xz -z -e rfc" + i + ".pdf");
+		    exec("xz -z -e rfc" + i);
 		    
-		    exec("mv rfc" + i + ".pdf.gz /dev/shm");
-		    exec("mv rfc" + i + ".gz /dev/shm");
+		    exec("mv rfc" + i + ".pdf.xz /dev/shm");
+		    exec("mv rfc" + i + ".xz /dev/shm");
 		}
 	    else if (args.length == 3)
 		for (int i = start; i <= end; i++)
 		{
 		    exec("mkdir " + i / 50 * 50);
-		    exec("mv rfc" + i + ".pdf.gz " + i / 50 * 50);
-		    exec("mv rfc" + i + ".gz " + i / 50 * 50);
+		    exec("mv rfc" + i + ".pdf.xz " + i / 50 * 50);
+		    exec("mv rfc" + i + ".xz " + i / 50 * 50);
 		}
 	}
 	catch (final Exception err)
