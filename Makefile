@@ -5,10 +5,10 @@ noxutil:
 	jar7 -cfm nox-alarm.jar META-INF/MANIFEST.MF se/kth/maandree/noxutil/*.class || jar -cfm nox-alarm.jar META-INF/MANIFEST.MF se/kth/maandree/noxutil/*.class
 
 install:
-	install -D -m 755 'nox-alarm.jar' '22:00' '22;00.jar' {nox-alarm,quack,winise,distinct}{,.jar} "$(DESTDIR)/usr/bin/"
+	install -D -m 755 'nox-util.jar' '22:00' '22;00.jar' {nox-alarm,quack,winise,distinct}{,.jar} "$(DESTDIR)/usr/bin/"
 
 uninstall:
-	unlink "$(DESTDIR)/usr/bin/nox-alarm.jar"
+	unlink "$(DESTDIR)/usr/bin/nox-util.jar"
 	unlink "$(DESTDIR)/usr/bin/22:00"
 	unlink "$(DESTDIR)/usr/bin/22;00.jar"
 	unlink "$(DESTDIR)/usr/bin/nox-alarm"
