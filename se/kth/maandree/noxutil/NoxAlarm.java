@@ -201,7 +201,34 @@ public class NoxAlarm
 			System.out.print("\033c");
 			final String check = "Press Enter to snooze, otherwise type this line itself, in upper case.";
 			System.out.println(check);
-			if (sc.nextLine().equals(check.toUpperCase()) == false)
+			final boolean[] entered = { false };
+			final Thread thread = new Thread()
+			        {
+				    @Override
+				    public void run()
+				    {   for (;;)
+					    try
+					    {   synchronized (entered)
+					        {   entered.wait(30000);  if (entered[0])  break;
+						    entered.wait(30000);  if (entered[0])  break;
+						    entered.wait(30000);  if (entered[0])  break;
+						    entered.wait(30000);  if (entered[0])  break;
+						}
+						run(command);
+					    }
+					    catch (final Throwable err)
+					    {   //Ignore
+				    }       }
+			        };
+			thread.setDaemon(true);
+			thread.start();
+			final String inputLine = sc.nextLine();
+			synchronized (entered)
+			{
+			    entered[1] = true;
+			    entered.notifyAll();
+			}
+			if (inputLine.equals(check.toUpperCase()) == false)
 			    for (int snooze = 0; snooze < 40; snooze++)
 				Thread.sleep(6000);
 			else
