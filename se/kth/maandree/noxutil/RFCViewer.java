@@ -217,7 +217,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 	    
 	    try
 	    {
-		dbis = new BufferedInputStream(new FileInputStream("rfc.db"));
+		dbis = new BufferedInputStream(new FileInputStream("/usr/share/nox-util/rfc/rfc.db"));
 		
 		final Scanner dbsc = new Scanner(dbis, "UTF-8");
 		while (dbsc.hasNext())
@@ -737,7 +737,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 		    final int index = Integer.parseInt(file);
 		    final int groupi = index / 50 * 50;
 		    
-		    all.append(" " + groupi + "/rfc" + index + ".pdf.xz");
+		    all.append(" /usr/share/nox-util/rfc/" + groupi + "/rfc" + index + ".pdf.xz");
 		}
 		all.append(" &");
 		exec(all.toString());
@@ -748,7 +748,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 		    final int index = Integer.parseInt(file);
 		    final int groupi = index / 50 * 50;
 		    
-		    exec("xz -dc " + groupi + "/rfc" + index + ".xz", "less -r");
+		    exec("xz -dc /usr/share/nox-util/rfc/" + groupi + "/rfc" + index + ".xz", "less -r");
 		}
 
 	/////////////////////////////////////////////////////////////////////////////////////////
@@ -777,8 +777,8 @@ public class RFCViewer //FIXME  handle invalid arguments
 		int pdfptr = 0;
 		
 		for (int i = 0; i <= max; i += 50)
-		    if ((new File("./" + i)).exists())
-			for (final String path : (new File("./" + i)).list())
+		    if ((new File("/usr/share/nox-util/rfc/" + i)).exists())
+			for (final String path : (new File("/usr/share/nox-util/rfc/" + i)).list())
 			    if (path.startsWith("rfc") && path.endsWith(".pdf.xz"))
 				pdf[pdfptr++] = Integer.parseInt(path.substring(3, path.length() - 7));
 			    else if (path.startsWith("rfc") && path.endsWith(".xz"))
@@ -979,7 +979,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 	    if (database == null)
 	    {
 		database = new ArrayList<String>();
-		exec("echo -n '' >> rfc.db");
+		exec("echo -n '' >> /usr/share/nox-util/rfc/rfc.db");
 	    }
 	
 
@@ -1127,8 +1127,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 	
 	if (database != null)
         {
-	    exec("echo -n '' > rfc.db");
-	    final OutputStream dbos = new BufferedOutputStream(new FileOutputStream("rfc.db"));
+	    final OutputStream dbos = new BufferedOutputStream(new FileOutputStream("/usr/share/nox-util/rfc/rfc.db"));
 	    
 	    try
 	    {

@@ -62,21 +62,17 @@ public class RFCDownloader
 		    exec("wget https://tools.ietf.org/rfc/rfc" + i + ".txt");
 		    exec("wget https://tools.ietf.org/pdf/rfc" + i);
 		    
-		    exec("mv rfc" + i + " rfc" + i + ".pdf");
-		    exec("mv rfc" + i + ".txt rfc" + i);
+		    exec("mv rfc" + i + " /dev/shm/rfc" + i + ".pdf");
+		    exec("mv rfc" + i + ".txt /dev/shm/rfc" + i);
 		    
-		    exec("xz -z -e rfc" + i + ".pdf");
-		    exec("xz -z -e rfc" + i);
-		    
-		    exec("mv rfc" + i + ".pdf.xz /dev/shm");
-		    exec("mv rfc" + i + ".xz /dev/shm");
+		    exec("xz -z -e /dev/shm/rfc" + i + ".pdf");
+		    exec("xz -z -e /dev/shm/rfc" + i);
 		}
 	    else if (args.length == 3)
 		for (int i = start; i <= end; i++)
 		{
-		    exec("mkdir " + i / 50 * 50);
-		    exec("mv rfc" + i + ".pdf.xz " + i / 50 * 50);
-		    exec("mv rfc" + i + ".xz " + i / 50 * 50);
+		    exec("mkdir /usr/share/nox-util/rfc/" + i / 50 * 50);
+		    exec("mv /dev/shm/rfc" + i + ".{pdf.xz,xz} /usr/share/nox-util/rfc/" + i / 50 * 50);
 		}
 	}
 	catch (final Exception err)

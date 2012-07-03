@@ -49,11 +49,13 @@ public class Program
 	    final String[] progArgs = new String[args.length - 1];
 	    System.arraycopy(args, args.length - progArgs.length, progArgs, 0, progArgs.length);
 	    
-	    if      (prog.equals("distinct"))    Distinct.main(progArgs);
-	    else if (prog.equals("noxalarm"))    NoxAlarm.main(progArgs);
-	    else if (prog.equals("quack"))       Quack   .main(progArgs);
-	    else if (prog.equals("winise"))      Winise  .main(progArgs);
-	    else if (prog.equals("22:00"))  Bibinilnilium.main(progArgs);
+	    if      (prog.equals("distinct"))       Distinct     .main(progArgs);
+	    else if (prog.equals("noxalarm"))       NoxAlarm     .main(progArgs);
+	    else if (prog.equals("quack"))          Quack        .main(progArgs);
+	    else if (prog.equals("winise"))         Winise       .main(progArgs);
+	    else if (prog.equals("22:00"))          Bibinilnilium.main(progArgs);
+	    else if (prog.equals("rfcviewer"))      RFCViewer    .main(progArgs);
+	    else if (prog.equals("rfcdownloader"))  RFCDownloader.main(progArgs);
 	    else
 		System.err.println("Unknown program: " + prog);
 	}
