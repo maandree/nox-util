@@ -53,6 +53,13 @@ public class RFCDownloader
 	    
 	    tty = " < " + ttyin + " > " + ttyout + " 2> " + ttyerr;
 	    
+	    if (args.length == 1)
+	    {
+		exec("wget http://www.ietf.org/download/rfc-index.txt");
+		exec("mv rfc-index.txt /usr/share/nox-util/rfc/index");
+		return;
+	    }
+	    
 	    final int start = Integer.parseInt(args[0]);
 	    final int end   = Integer.parseInt(args[1]);
 	    

@@ -383,7 +383,7 @@ public class RFCViewer //FIXME  handle invalid arguments
 		"    to perform various actions.\033[0m"                                                               +"\n"+
 		""                                                                                                     +"\n"+
 		""                                                                                                     +"\n"+
-		"\033[33mINTERNAL SYSOPSIS\033[0m"                                                                     +"\n"+
+		"\033[33mINTERNAL SYNOPSIS\033[0m"                                                                     +"\n"+
 		"\033[36;1m"                                                                                           +"\n"+
 		"    ---atparsing\033[0m    Used for stupid support for complex expressing on @files."                 +"\n"+
 		""                                                                                                     +"\n"+

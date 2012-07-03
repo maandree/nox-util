@@ -9,6 +9,8 @@ install:
 	install -d "$(DESTDIR)/usr/bin/"
 	install -m 755 'nox-util.jar' '22:00' '22;00.jar' "$(DESTDIR)/usr/bin/"
 	install -m 755 {nox-alarm,quack,winise,distinct,rfc,rfcdownloader}{,.jar} "$(DESTDIR)/usr/bin/"
+	chown -R 'root:users' "$(DESTDIR)/usr/share/nox-util/rfc/"
+	chmod -R 775 "$(DESTDIR)/usr/share/nox-util/rfc/"
 
 uninstall:
 	rm -r "$(DESTDIR)/usr/share/nox-util/"
