@@ -71,7 +71,7 @@ public class RFCDownloader
 	    else if (args.length == 3)
 		for (int i = start; i <= end; i++)
 		{
-		    exec("mkdir /usr/share/nox-util/rfc/" + i / 50 * 50);
+		    exec("mkdir -p /usr/share/nox-util/rfc/" + i / 50 * 50);
 		    exec("mv /dev/shm/rfc" + i + ".{pdf.xz,xz} /usr/share/nox-util/rfc/" + i / 50 * 50);
 		}
 	}
