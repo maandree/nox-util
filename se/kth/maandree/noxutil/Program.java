@@ -56,6 +56,7 @@ public class Program
 	    else if (prog.equals("22:00"))          Bibinilnilium.main(progArgs);
 	    else if (prog.equals("rfcviewer"))      RFCViewer    .main(progArgs);
 	    else if (prog.equals("rfcdownloader"))  RFCDownloader.main(progArgs);
+	    else if (prog.equals("redalert"))       RedAlert     .main(progArgs);
 	    else
 		System.err.println("Unknown program: " + prog);
 	}

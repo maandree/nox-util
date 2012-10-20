@@ -8,7 +8,7 @@ install:
 	install -d "$(DESTDIR)/usr/share/nox-util/rfc/"
 	install -d "$(DESTDIR)/usr/bin/"
 	install -m 755 'nox-util.jar' '22:00' '22;00.jar' "$(DESTDIR)/usr/bin/"
-	install -m 755 {nox-alarm,quack,winise,distinct,rfc,rfcdownloader}{,.jar} "$(DESTDIR)/usr/bin/"
+	install -m 755 {nox-alarm,quack,winise,distinct,rfc,rfcdownloader,redalert}{,.jar} "$(DESTDIR)/usr/bin/"
 	chown -R 'root:users' "$(DESTDIR)/usr/share/nox-util/rfc/"
 	chmod -R 775 "$(DESTDIR)/usr/share/nox-util/rfc/"
 
@@ -23,6 +23,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/bin/distinct"
 	unlink "$(DESTDIR)/usr/bin/rfc"
 	unlink "$(DESTDIR)/usr/bin/rfcdownloader"
+	unlink "$(DESTDIR)/usr/bin/redalert"
 
 	unlink "$(DESTDIR)/usr/bin/22;00.jar"
 	unlink "$(DESTDIR)/usr/bin/nox-alarm.jar"
@@ -31,6 +32,7 @@ uninstall:
 	unlink "$(DESTDIR)/usr/bin/distinct.jar"
 	unlink "$(DESTDIR)/usr/bin/rfc.jar"
 	unlink "$(DESTDIR)/usr/bin/rfcdownloader.jar"
+	unlink "$(DESTDIR)/usr/bin/redalert.jar"
 
 clean:
 	rm se/kth/maandree/noxutil/*.class
