@@ -1,1 +1,2 @@
-/opt/java7/bin/java -jar "$0".jar winise "$@"
+#!/bin/sh
+java7 -jar "$0".jar winise "$@"

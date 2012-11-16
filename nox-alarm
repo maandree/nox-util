@@ -1,3 +1,4 @@
+#!/bin/sh
 stty -isig
-/opt/java7/bin/java -jar "$0".jar nox-alarm "$@"
+java7 -jar "$0".jar nox-alarm "$@"
 stty isig
